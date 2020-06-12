@@ -1,22 +1,21 @@
 {
   "name": "@eric4hy/graphs",
-  "version": "1.0.1",
+  "version": "1.0.0",
+  "main": "./lib/index.js",
+  "types": "./lib/index.d.ts",
   "author": "Eric Wang",
   "license": "Apache2.0",
   "private": true,
-  "main": "./lib/index.js",
-  "types": "./lib/index.d.ts",
   "scripts": {
     "libbuild": "tsc && tsc --build tsconfig.esm.json",
     "watch": "tsc -w"
   },
-  "devDependencies": {
-    "@types/react": "^16.9.0",
-    "@types/react-dom": "^16.9.0",
-    "typescript": "^3.9.5"
-  },
-  "peerDependencies": {
-    "react": "^16.13.1",
-    "react-dom": "^16.13.1"
+  "dependencies": {
+    "@juggle/resize-observer": "^3.0.2",
+    "dygraphs": "^2.1.0",
+    "@types/dygraphs": "^1.1.11",
+    "html2canvas": "^1.0.0-rc.3",
+    "moment": "^2.24.0",
+    "moment-timezone": "^0.5.26"
   }
 }

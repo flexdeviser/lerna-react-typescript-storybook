@@ -1,5 +1,4 @@
 import React, { FC } from 'react';
-
 type CardProps = {
   title: string;
 };

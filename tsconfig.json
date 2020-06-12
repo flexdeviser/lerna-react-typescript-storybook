@@ -8,6 +8,8 @@
   "compilerOptions": {
     "jsx": "react",
     "esModuleInterop": true,
+    "declaration": true,
+    "composite": true,
     "declarationMap": true,
     "skipLibCheck": true
   }

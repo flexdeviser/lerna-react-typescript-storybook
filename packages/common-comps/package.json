@@ -1,0 +1,25 @@
+{
+  "name": "@eric4hy/common-comps",
+  "version": "1.0.1",
+  "author": "Eric Wang",
+  "license": "Apache2.0",
+  "private": true,
+  "main": "./lib/index.js",
+  "types": "./lib/index.d.ts",
+  "scripts": {
+    "libbuild": "tsc && tsc --build tsconfig.esm.json",
+    "watch": "tsc -w"
+  },
+  "devDependencies": {
+    "@types/react": "^16.9.0",
+    "@types/react-dom": "^16.9.0",
+    "typescript": "^3.9.5"
+  },
+  "dependencies": {
+    "@eric4hy/graphs": "^1.0.0"
+  },
+  "peerDependencies": {
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1"
+  }
+}

@@ -24,6 +24,6 @@
     "style-loader": "^1.2.1"
   },
   "dependencies": {
-    "@eric4hy/graphs": "^1.0.1"
+    "@eric4hy/common-comps": "^1.0.1"
   }
 }

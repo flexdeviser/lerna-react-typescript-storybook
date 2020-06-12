@@ -10,28 +10,36 @@
     "postinstall": "yarn bootstrap",
     "story": "lerna run story --stream",
     "prestart": "lerna run libbuild --stream",
-    "watch": "lerna run watch --stream",
-    "start": "lerna run start --stream --scope=@eric4hy/playground",
+    "watch": "lerna run --parallel watch --stream",
+    "start": "yarn story",
     "commit": "git-cz",
-    "vsc": "lerna version --conventional-commits"
+    "vsc": "lerna version --conventional-commits",
+    "lint": "eslint '*/**/*.{js,ts,tsx}' --quiet --fix"
   },
   "workspaces": [
     "packages/*"
   ],
   "devDependencies": {
     "@babel/core": "^7.10.2",
+    "@commitlint/cli": "^8.3.4",
+    "@commitlint/config-conventional": "^8.3.4",
     "@storybook/react": "^5.3.19",
     "@types/react": "^16.9.0",
     "@types/react-dom": "^16.9.0",
     "@types/storybook__react": "^5.2.1",
+    "@typescript-eslint/eslint-plugin": "^3.2.0",
+    "@typescript-eslint/parser": "^3.2.0",
     "awesome-typescript-loader": "^5.2.1",
     "babel-loader": "8.0.6",
     "commitizen": "^4.1.2",
-    "@commitlint/cli": "^8.3.4",
-    "@commitlint/config-conventional": "^8.3.4",
     "cz-conventional-changelog": "^3.2.0",
+    "eslint": "^7.2.0",
+    "eslint-config-prettier": "^6.11.0",
+    "eslint-plugin-prettier": "^3.1.3",
+    "eslint-plugin-react": "^7.20.0",
     "lerna": "^3.22.1",
     "node-sass": "^4.14.1",
+    "prettier": "^2.0.5",
     "sass-loader": "^8.0.2",
     "source-map-loader": "^1.0.0",
     "style-loader": "^1.2.1",
@@ -41,5 +49,12 @@
     "commitizen": {
       "path": "cz-conventional-changelog"
     }
+  },
+  "prettier": {
+    "semi": true,
+    "trailingComma": "all",
+    "singleQuote": true,
+    "printWidth": 120,
+    "tabWidth": 2
   }
 }
