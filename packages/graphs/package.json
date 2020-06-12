@@ -1,6 +1,6 @@
 {
   "name": "@eric4hy/graphs",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "author": "Eric Wang",
   "license": "Apache2.0",
   "private": true,
@@ -11,9 +11,9 @@
     "watch": "tsc -w"
   },
   "devDependencies": {
-    "typescript": "^3.9.5",
     "@types/react": "^16.9.0",
-    "@types/react-dom": "^16.9.0"
+    "@types/react-dom": "^16.9.0",
+    "typescript": "^3.9.5"
   },
   "peerDependencies": {
     "react": "^16.13.1",

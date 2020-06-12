@@ -1,6 +1,6 @@
 {
   "name": "@eric4hy/playground",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "main": "index.js",
   "author": "Eric Wang",
   "license": "Apache2.0",
@@ -24,6 +24,6 @@
     "style-loader": "^1.2.1"
   },
   "dependencies": {
-    "@eric4hy/graphs": "^1.0.0"
+    "@eric4hy/graphs": "^1.0.1"
   }
 }
