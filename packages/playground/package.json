@@ -6,7 +6,7 @@
   "license": "Apache2.0",
   "private": true,
   "scripts": {
-    "story": "start-storybook"
+    "story": "start-storybook --quiet -p 5000"
   },
   "peerDependencies": {
     "react": "^16.13.1",
