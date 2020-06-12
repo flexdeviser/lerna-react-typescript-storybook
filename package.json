@@ -1,0 +1,44 @@
+{
+  "name": "@eric4hy/react-lerna-storybook",
+  "version": "1.0.0",
+  "private": true,
+  "main": "index.js",
+  "author": "Eric Wang",
+  "license": "Apache2.0",
+  "scripts": {
+    "bootstrap": "lerna bootstrap",
+    "postinstall": "yarn bootstrap",
+    "story": "lerna run story --stream",
+    "prestart": "lerna run libbuild --stream",
+    "watch": "lerna run watch --stream",
+    "start": "lerna run start --stream --scope=@eric4hy/playground",
+    "commit": "git-cz"
+  },
+  "workspaces": [
+    "packages/*"
+  ],
+  "devDependencies": {
+    "@babel/core": "^7.10.2",
+    "@storybook/react": "^5.3.19",
+    "@types/react": "^16.9.0",
+    "@types/react-dom": "^16.9.0",
+    "@types/storybook__react": "^5.2.1",
+    "awesome-typescript-loader": "^5.2.1",
+    "babel-loader": "8.0.6",
+    "commitizen": "^4.1.2",
+    "@commitlint/cli": "^8.3.4",
+    "@commitlint/config-conventional": "^8.3.4",
+    "cz-conventional-changelog": "^3.2.0",
+    "lerna": "^3.22.1",
+    "node-sass": "^4.14.1",
+    "sass-loader": "^8.0.2",
+    "source-map-loader": "^1.0.0",
+    "style-loader": "^1.2.1",
+    "typescript": "^3.9.5"
+  },
+  "config": {
+    "commitizen": {
+      "path": "cz-conventional-changelog"
+    }
+  }
+}

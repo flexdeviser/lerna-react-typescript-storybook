@@ -1,0 +1,14 @@
+{
+  "exclude": [
+    "node_modules"
+  ],
+  "files": [
+    "./typings.d.ts"
+  ],
+  "compilerOptions": {
+    "jsx": "react",
+    "esModuleInterop": true,
+    "declarationMap": true,
+    "skipLibCheck": true
+  }
+}
