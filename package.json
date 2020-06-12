@@ -12,7 +12,8 @@
     "prestart": "lerna run libbuild --stream",
     "watch": "lerna run watch --stream",
     "start": "lerna run start --stream --scope=@eric4hy/playground",
-    "commit": "git-cz"
+    "commit": "git-cz",
+    "vsc": "lerna version --conventional-commits"
   },
   "workspaces": [
     "packages/*"
