@@ -1,1 +1,1 @@
-export * as Graphs from './components';
+export * as Comps from './components';
