@@ -20,7 +20,10 @@ export default class DataService implements DataHandler {
       {
         id: 'meter1',
         data: {
-          first: { timestamp: new Date('2019/10/01').getTime(), voltage: this.randomNumber(252, 255) },
+          first: {
+            timestamp: new Date('2019/10/01').getTime(),
+            voltage: this.randomNumber(252, 255),
+          },
           last: {
             timestamp: moment().add(1, 'days').startOf('day').valueOf(),
             voltage: this.randomNumber(252, 255),
@@ -30,7 +33,10 @@ export default class DataService implements DataHandler {
       {
         id: 'meter2',
         data: {
-          first: { timestamp: new Date('2019/10/01').getTime(), voltage: this.randomNumber(252, 255) },
+          first: {
+            timestamp: new Date('2019/10/01').getTime(),
+            voltage: this.randomNumber(252, 255),
+          },
           last: {
             timestamp: moment().add(1, 'days').startOf('day').valueOf(),
             voltage: this.randomNumber(252, 255),
@@ -40,7 +46,10 @@ export default class DataService implements DataHandler {
       {
         id: 'meter3',
         data: {
-          first: { timestamp: new Date('2019/10/01').getTime(), voltage: this.randomNumber(252, 255) },
+          first: {
+            timestamp: new Date('2019/10/01').getTime(),
+            voltage: this.randomNumber(252, 255),
+          },
           last: {
             timestamp: moment().add(1, 'days').startOf('day').valueOf(),
             voltage: this.randomNumber(252, 255),
@@ -50,7 +59,10 @@ export default class DataService implements DataHandler {
       {
         id: 'substation1',
         data: {
-          first: { timestamp: new Date('2019/10/01').getTime(), avgConsumptionVah: this.randomNumber(252, 255) },
+          first: {
+            timestamp: new Date('2019/10/01').getTime(),
+            avgConsumptionVah: this.randomNumber(252, 255),
+          },
           last: {
             timestamp: moment().add(1, 'days').startOf('day').valueOf(),
             avgConsumptionVah: this.randomNumber(252, 255),

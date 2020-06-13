@@ -1,18 +1,34 @@
 import React, { FC, useState, useRef, useEffect } from 'react';
 import { ViewConfig, FgpGraph } from '@eric4hy/graphs';
+import '@eric4hy/graphs/lib/css/graph.css';
 type GraphProps = {
   viewConfigs: Array<ViewConfig>;
   onReady?(div: HTMLDivElement, g: FgpGraph): void;
   viewChangeListener?(g: FgpGraph, view: ViewConfig): void;
-  intervalChangeListener?(g: FgpGraph, interval: { name: string; value: number; show?: boolean }): void;
+  intervalChangeListener?(
+    g: FgpGraph,
+    interval: { name: string; value: number; show?: boolean },
+  ): void;
 };
-export const Graphs: FC<GraphProps> = ({ viewConfigs, viewChangeListener, intervalChangeListener, onReady }) => {
+export const Graphs: FC<GraphProps> = ({
+  viewConfigs,
+  viewChangeListener,
+  intervalChangeListener,
+  onReady,
+}) => {
   const containerRef = useRef<HTMLDivElement>(null);
+  console.log('componentWillReceiveProps', {
+    viewConfigs,
+    viewChangeListener,
+    intervalChangeListener,
+    onReady,
+  });
   // random id
   const [id] = useState(Math.random() * 1000);
   useEffect(() => {
     // check div
     if (!containerRef.current) return;
+    if (!viewConfigs || viewConfigs.length === 0) return;
     // create graph obj
     const graph = new FgpGraph(containerRef.current, viewConfigs, {
       onViewChange: viewChangeListener,
@@ -22,7 +38,14 @@ export const Graphs: FC<GraphProps> = ({ viewConfigs, viewChangeListener, interv
     graph.initGraph((fgpGraph: FgpGraph) => {
       onReady(containerRef.current, fgpGraph);
     }, true);
-  }, []);
+  }, [viewConfigs]);
 
-  return <div fgp-graph-id={`Graph${id}`} ref={containerRef}></div>;
+  const divStyle = {
+    width: '100%',
+    height: '400px',
+  };
+
+  return (
+    <div fgp-graph-id={`Graph${id}`} ref={containerRef} style={divStyle}></div>
+  );
 };

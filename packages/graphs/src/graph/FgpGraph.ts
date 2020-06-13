@@ -50,7 +50,12 @@ export class FgpGraph {
    * graph configuration
    * @memberof FgpGraph
    */
-  constructor(dom: HTMLElement, viewConfigs: Array<ViewConfig>, eventHandlers?: EventHandlers, syncViews?: boolean) {
+  constructor(
+    dom: HTMLElement,
+    viewConfigs: Array<ViewConfig>,
+    eventHandlers?: EventHandlers,
+    syncViews?: boolean,
+  ) {
     this.parentDom = dom;
     this.graphDateWindow = [0, 0];
     if (eventHandlers) {
@@ -73,14 +78,26 @@ export class FgpGraph {
       this.id = this.parentDom.getAttribute('fgp-graph-id') as string;
     }
 
-    const intervalsLabelsAttrs: Array<DomAttrs> = [{ key: 'class', value: 'fgp-interval-labels' }];
-    this.intervalLabelsArea = DomElementOperator.createElement('div', intervalsLabelsAttrs);
+    const intervalsLabelsAttrs: Array<DomAttrs> = [
+      { key: 'class', value: 'fgp-interval-labels' },
+    ];
+    this.intervalLabelsArea = DomElementOperator.createElement(
+      'div',
+      intervalsLabelsAttrs,
+    );
 
     // create doms
-    const containerAttrs: Array<DomAttrs> = [{ key: 'class', value: 'fgp-graph-container noselect' }];
-    this.graphContainer = DomElementOperator.createElement('div', containerAttrs);
+    const containerAttrs: Array<DomAttrs> = [
+      { key: 'class', value: 'fgp-graph-container noselect' },
+    ];
+    this.graphContainer = DomElementOperator.createElement(
+      'div',
+      containerAttrs,
+    );
 
-    const bodyAttrs: Array<DomAttrs> = [{ key: 'class', value: 'fgp-graph-body' }];
+    const bodyAttrs: Array<DomAttrs> = [
+      { key: 'class', value: 'fgp-graph-body' },
+    ];
     this.body = DomElementOperator.createElement('div', bodyAttrs);
     this.graphContainer.appendChild(this.body);
     this.parentDom.appendChild(this.graphContainer);
@@ -88,22 +105,33 @@ export class FgpGraph {
     // listening for div resizing.......
     const divResizeRo = new ResizeObserver((roes: ResizeObserverEntry[]) => {
       roes.forEach((domObserverEntry) => {
-        if (this.graph && domObserverEntry.target.className === 'fgp-graph-body') {
+        if (
+          this.graph &&
+          domObserverEntry.target.className === 'fgp-graph-body'
+        ) {
           console.log(
             'resizing dom: ',
             domObserverEntry.target.className,
             'if someone see a infinite loop here, please report it to author!',
           );
-          if (isNaN(domObserverEntry.contentRect.width) || isNaN(domObserverEntry.contentRect.height)) {
+          if (
+            isNaN(domObserverEntry.contentRect.width) ||
+            isNaN(domObserverEntry.contentRect.height)
+          ) {
           } else {
             // resize graph manually, because dygraph resizing base on window object.
-            console.log(`new size is: ${domObserverEntry.contentRect.width} ${domObserverEntry.contentRect.height}`);
+            console.log(
+              `new size is: ${domObserverEntry.contentRect.width} ${domObserverEntry.contentRect.height}`,
+            );
             const evt = window.document.createEvent('UIEvents');
             evt.initEvent('resize', false, false);
             window.dispatchEvent(evt);
           }
         } else {
-          console.log('resizing not support for: ', domObserverEntry.target.className);
+          console.log(
+            'resizing not support for: ',
+            domObserverEntry.target.className,
+          );
         }
       });
     });
@@ -191,7 +219,10 @@ export class FgpGraph {
    * @private
    * @memberof FgpGraph
    */
-  public initGraph = (ready?: (g: FgpGraph) => void, needSync?: boolean): void => {
+  public initGraph = (
+    ready?: (g: FgpGraph) => void,
+    needSync?: boolean,
+  ): void => {
     this.operator = new GraphOperator(
       this.graph,
       this.rangeBarGraph,
@@ -264,7 +295,10 @@ export class FgpGraph {
     }
   };
 
-  updateDatewinowInside = (datewindow: [number, number], forceReload?: boolean): void => {
+  updateDatewinowInside = (
+    datewindow: [number, number],
+    forceReload?: boolean,
+  ): void => {
     // update graph
     if (this.graph) {
       // update current date-window
@@ -296,7 +330,11 @@ export class FgpGraph {
    *
    * @memberof FgpGraph
    */
-  public highlightSeries = (series: string[], duration: number, type?: string): void => {
+  public highlightSeries = (
+    series: string[],
+    duration: number,
+    type?: string,
+  ): void => {
     //
     this.operator.highlightSeries(series, duration, type);
   };
